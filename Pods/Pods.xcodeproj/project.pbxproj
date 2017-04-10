@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A548EF1E527C3371053F5DFF6C821E9 /* Pods-CBLiteStarterAppTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F936736C4D0C1E79C867229B4BA56 /* Pods-CBLiteStarterAppTests-dummy.m */; };
+		48C6B7039A3C5C3CF9D2EAE4BF149933 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		51D32434999DB12E9B9740F48E69BBE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		A7CF5AA823E46A0F43D97C4FC946A27A /* Pods-CBLiteStarterApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A14AFD719D6C2A3DD29CA4BB277A6DC3 /* Pods-CBLiteStarterApp-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0D03D128B5BDF61C61E8A08709A21854 /* CBLRegisterJSViewCompiler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLRegisterJSViewCompiler.h; path = Extras/CBLRegisterJSViewCompiler.h; sourceTree = "<group>"; };
+		0D2F65955C8B10062383A5AF649B6C8F /* CBLModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLModel.h; path = CouchbaseLite.framework/Headers/CBLModel.h; sourceTree = "<group>"; };
+		0D9E075F529C2A0C4826611C2E17F87B /* Pods-CBLiteStarterAppTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CBLiteStarterAppTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		12B99EE5A61B8B214DD56F6193EBDE26 /* CouchbaseLiteListener.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLiteListener.framework; sourceTree = "<group>"; };
+		1E6DDD44587CC10D3FD0112E348BF0BF /* libCBLJSViewCompiler.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libCBLJSViewCompiler.a; path = Extras/libCBLJSViewCompiler.a; sourceTree = "<group>"; };
+		35672FA6E2C193290122DF649EDC320F /* CBLUITableSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLUITableSource.h; path = CouchbaseLite.framework/Headers/CBLUITableSource.h; sourceTree = "<group>"; };
+		4D81B159DE5FA352AE65A06E4C42D136 /* CBLAuthenticator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLAuthenticator.h; path = CouchbaseLite.framework/Headers/CBLAuthenticator.h; sourceTree = "<group>"; };
+		5709EE471FD5CA7FCBF51E6CE619164F /* CBLDatabase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLDatabase.h; path = CouchbaseLite.framework/Headers/CBLDatabase.h; sourceTree = "<group>"; };
+		5A88C71A8956D113784C463153AC4A65 /* CBLReplication.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLReplication.h; path = CouchbaseLite.framework/Headers/CBLReplication.h; sourceTree = "<group>"; };
+		5C607CF9A3D2F04C0B24C62CECDA7F59 /* Pods-CBLiteStarterApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-CBLiteStarterApp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6098E7223CFBFBA14D04E282A3BA2467 /* CBLQuery+Geo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CBLQuery+Geo.h"; path = "CouchbaseLite.framework/Headers/CBLQuery+Geo.h"; sourceTree = "<group>"; };
+		61BAFA7482AEE318F0DA99BB637B5884 /* CBLAuthenticator+OpenID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CBLAuthenticator+OpenID.h"; path = "CouchbaseLite.framework/Headers/CBLAuthenticator+OpenID.h"; sourceTree = "<group>"; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		756E92DA27B94A76E6D6A5A34D9FFB01 /* Pods-CBLiteStarterAppTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CBLiteStarterAppTests-resources.sh"; sourceTree = "<group>"; };
+		7AA69FECC3154E72B4C618817F578FF4 /* libPods-CBLiteStarterApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-CBLiteStarterApp.a"; path = "libPods-CBLiteStarterApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B0F936736C4D0C1E79C867229B4BA56 /* Pods-CBLiteStarterAppTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CBLiteStarterAppTests-dummy.m"; sourceTree = "<group>"; };
+		7D5D7D0311688707001341D8D1746B20 /* libsqlcipher.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libsqlcipher.a; path = Extras/libsqlcipher.a; sourceTree = "<group>"; };
+		8087093C4D1C675C4718FFE7DABE8B1E /* Pods-CBLiteStarterAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBLiteStarterAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		876CCEBCE5524748A966A9AE7920D254 /* CBLGeometry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLGeometry.h; path = CouchbaseLite.framework/Headers/CBLGeometry.h; sourceTree = "<group>"; };
+		8D0B65CF1D34B29870385756336AD671 /* CBLDynamicObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLDynamicObject.h; path = CouchbaseLite.framework/Headers/CBLDynamicObject.h; sourceTree = "<group>"; };
+		8F9EA568F0F381997E978EAA56BCFD96 /* CouchbaseLiteListener.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CouchbaseLiteListener.h; path = CouchbaseLiteListener.framework/Headers/CouchbaseLiteListener.h; sourceTree = "<group>"; };
+		90256E7F534D41E9F8E72CFF54E53B6A /* Pods-CBLiteStarterAppTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CBLiteStarterAppTests-frameworks.sh"; sourceTree = "<group>"; };
+		902A7A3B2298A9F9B60AB7844DDED506 /* CBLQuery+FullTextSearch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CBLQuery+FullTextSearch.h"; path = "CouchbaseLite.framework/Headers/CBLQuery+FullTextSearch.h"; sourceTree = "<group>"; };
+		90DB7E3A776E728E87240D7AA7CFB7B0 /* CBLManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLManager.h; path = CouchbaseLite.framework/Headers/CBLManager.h; sourceTree = "<group>"; };
+		923F85AC9990481975900EF4C1486F06 /* Pods-CBLiteStarterApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBLiteStarterApp.debug.xcconfig"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94AF75ACC4E01897E1D0B5242A54FF67 /* Pods-CBLiteStarterApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBLiteStarterApp.release.xcconfig"; sourceTree = "<group>"; };
+		951840B139E18FA502BCADE4E9F38AD3 /* Pods-CBLiteStarterApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CBLiteStarterApp-frameworks.sh"; sourceTree = "<group>"; };
+		958D0E448634771C73A6C27F3719902C /* CBLBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLBase.h; path = CouchbaseLite.framework/Headers/CBLBase.h; sourceTree = "<group>"; };
+		9ED59A1BFC7520177DD761AA93DED34A /* CouchbaseLite.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CouchbaseLite.h; path = CouchbaseLite.framework/Headers/CouchbaseLite.h; sourceTree = "<group>"; };
+		A14AFD719D6C2A3DD29CA4BB277A6DC3 /* Pods-CBLiteStarterApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-CBLiteStarterApp-dummy.m"; sourceTree = "<group>"; };
+		B5C3FD1865363F9638004CD158FBFE18 /* CBLJSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLJSON.h; path = CouchbaseLite.framework/Headers/CBLJSON.h; sourceTree = "<group>"; };
+		B72D8EE3699C9F947B74984D2A574578 /* CBLQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLQuery.h; path = CouchbaseLite.framework/Headers/CBLQuery.h; sourceTree = "<group>"; };
+		C8EA89C1CA026C22F2ED085A982514B5 /* Pods-CBLiteStarterApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CBLiteStarterApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		CB648A1FCCBF05F4DF3D8E1F894E8698 /* libPods-CBLiteStarterAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-CBLiteStarterAppTests.a"; path = "libPods-CBLiteStarterAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF6C77976683171706FF943E101A62D0 /* Pods-CBLiteStarterAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CBLiteStarterAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D4DEC6B6012A8176CE76EB4F321D0A33 /* CBLListener.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLListener.h; path = CouchbaseLiteListener.framework/Headers/CBLListener.h; sourceTree = "<group>"; };
+		D618A067ACC284AA5514E0A1907AA3E9 /* CBLModelFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLModelFactory.h; path = CouchbaseLite.framework/Headers/CBLModelFactory.h; sourceTree = "<group>"; };
+		D7A79AE1BB9107AB1864979D4C04864D /* CBLRevision.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLRevision.h; path = CouchbaseLite.framework/Headers/CBLRevision.h; sourceTree = "<group>"; };
+		D7F1D6D5A9795AF38AC62B5102B5AC45 /* CBLAttachment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLAttachment.h; path = CouchbaseLite.framework/Headers/CBLAttachment.h; sourceTree = "<group>"; };
+		DB6A90739E73D87760CAB008212C62B8 /* CBLDatabaseChange.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLDatabaseChange.h; path = CouchbaseLite.framework/Headers/CBLDatabaseChange.h; sourceTree = "<group>"; };
+		DD4BC8E849C75EACC9C69301357C23DF /* CBLDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLDocument.h; path = CouchbaseLite.framework/Headers/CBLDocument.h; sourceTree = "<group>"; };
+		DE11962DAD12CABD3496A60527848751 /* Pods-CBLiteStarterAppTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CBLiteStarterAppTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		EA36594AB2E61B069CB577647880C162 /* CBLQueryBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLQueryBuilder.h; path = CouchbaseLite.framework/Headers/CBLQueryBuilder.h; sourceTree = "<group>"; };
+		EBC010E8CAAC577793B0C8267A6FE5B9 /* CouchbaseLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CouchbaseLite.framework; sourceTree = "<group>"; };
+		EF897948786A50C549DA2A847D0D339B /* Pods-CBLiteStarterApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-CBLiteStarterApp-resources.sh"; sourceTree = "<group>"; };
+		FEE0339C337BF67D02D66030F2103AC7 /* CBLView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CBLView.h; path = CouchbaseLite.framework/Headers/CBLView.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A8FE096CE2F49AB392BC2CEF66DFDCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				51D32434999DB12E9B9740F48E69BBE8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50FB7650294428CE2EF3887A9CE01203 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48C6B7039A3C5C3CF9D2EAE4BF149933 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03FFF53AD82DA5583BFEFE441A8DBEA3 /* SQLCipher */ = {
+			isa = PBXGroup;
+			children = (
+				D7F1D6D5A9795AF38AC62B5102B5AC45 /* CBLAttachment.h */,
+				4D81B159DE5FA352AE65A06E4C42D136 /* CBLAuthenticator.h */,
+				61BAFA7482AEE318F0DA99BB637B5884 /* CBLAuthenticator+OpenID.h */,
+				958D0E448634771C73A6C27F3719902C /* CBLBase.h */,
+				5709EE471FD5CA7FCBF51E6CE619164F /* CBLDatabase.h */,
+				DB6A90739E73D87760CAB008212C62B8 /* CBLDatabaseChange.h */,
+				DD4BC8E849C75EACC9C69301357C23DF /* CBLDocument.h */,
+				8D0B65CF1D34B29870385756336AD671 /* CBLDynamicObject.h */,
+				876CCEBCE5524748A966A9AE7920D254 /* CBLGeometry.h */,
+				B5C3FD1865363F9638004CD158FBFE18 /* CBLJSON.h */,
+				D4DEC6B6012A8176CE76EB4F321D0A33 /* CBLListener.h */,
+				90DB7E3A776E728E87240D7AA7CFB7B0 /* CBLManager.h */,
+				0D2F65955C8B10062383A5AF649B6C8F /* CBLModel.h */,
+				D618A067ACC284AA5514E0A1907AA3E9 /* CBLModelFactory.h */,
+				B72D8EE3699C9F947B74984D2A574578 /* CBLQuery.h */,
+				902A7A3B2298A9F9B60AB7844DDED506 /* CBLQuery+FullTextSearch.h */,
+				6098E7223CFBFBA14D04E282A3BA2467 /* CBLQuery+Geo.h */,
+				EA36594AB2E61B069CB577647880C162 /* CBLQueryBuilder.h */,
+				0D03D128B5BDF61C61E8A08709A21854 /* CBLRegisterJSViewCompiler.h */,
+				5A88C71A8956D113784C463153AC4A65 /* CBLReplication.h */,
+				D7A79AE1BB9107AB1864979D4C04864D /* CBLRevision.h */,
+				35672FA6E2C193290122DF649EDC320F /* CBLUITableSource.h */,
+				FEE0339C337BF67D02D66030F2103AC7 /* CBLView.h */,
+				9ED59A1BFC7520177DD761AA93DED34A /* CouchbaseLite.h */,
+				8F9EA568F0F381997E978EAA56BCFD96 /* CouchbaseLiteListener.h */,
+				D2C0EE0BF0E556F855656064CF1917CB /* Frameworks */,
+			);
+			name = SQLCipher;
+			sourceTree = "<group>";
+		};
+		06EA9FFC4F666968D0D4025F946FF264 /* Pods-CBLiteStarterApp */ = {
+			isa = PBXGroup;
+			children = (
+				5C607CF9A3D2F04C0B24C62CECDA7F59 /* Pods-CBLiteStarterApp-acknowledgements.markdown */,
+				C8EA89C1CA026C22F2ED085A982514B5 /* Pods-CBLiteStarterApp-acknowledgements.plist */,
+				A14AFD719D6C2A3DD29CA4BB277A6DC3 /* Pods-CBLiteStarterApp-dummy.m */,
+				951840B139E18FA502BCADE4E9F38AD3 /* Pods-CBLiteStarterApp-frameworks.sh */,
+				EF897948786A50C549DA2A847D0D339B /* Pods-CBLiteStarterApp-resources.sh */,
+				923F85AC9990481975900EF4C1486F06 /* Pods-CBLiteStarterApp.debug.xcconfig */,
+				94AF75ACC4E01897E1D0B5242A54FF67 /* Pods-CBLiteStarterApp.release.xcconfig */,
+			);
+			name = "Pods-CBLiteStarterApp";
+			path = "Target Support Files/Pods-CBLiteStarterApp";
+			sourceTree = "<group>";
+		};
+		0ACE0BE6998EA234B1F3772BB6CE0039 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				06EA9FFC4F666968D0D4025F946FF264 /* Pods-CBLiteStarterApp */,
+				A020387F6715E47196F3B99F94C098B2 /* Pods-CBLiteStarterAppTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		104E1892B0778881DDAA1DD82E0BEAB0 /* couchbase-lite-ios */ = {
+			isa = PBXGroup;
+			children = (
+				03FFF53AD82DA5583BFEFE441A8DBEA3 /* SQLCipher */,
+				94170828ABD624C2287BFFF489FFDF9D /* SQLite */,
+			);
+			name = "couchbase-lite-ios";
+			path = "couchbase-lite-ios";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				CE511D8947F4FEFDF6EE968681AE2B77 /* Pods */,
+				A16DD8F45099DD968FE8A0D110184BB1 /* Products */,
+				0ACE0BE6998EA234B1F3772BB6CE0039 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		94170828ABD624C2287BFFF489FFDF9D /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				A665471C60FB04C978E260D6B62E2616 /* Frameworks */,
+			);
+			name = SQLite;
+			sourceTree = "<group>";
+		};
+		A020387F6715E47196F3B99F94C098B2 /* Pods-CBLiteStarterAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				0D9E075F529C2A0C4826611C2E17F87B /* Pods-CBLiteStarterAppTests-acknowledgements.markdown */,
+				DE11962DAD12CABD3496A60527848751 /* Pods-CBLiteStarterAppTests-acknowledgements.plist */,
+				7B0F936736C4D0C1E79C867229B4BA56 /* Pods-CBLiteStarterAppTests-dummy.m */,
+				90256E7F534D41E9F8E72CFF54E53B6A /* Pods-CBLiteStarterAppTests-frameworks.sh */,
+				756E92DA27B94A76E6D6A5A34D9FFB01 /* Pods-CBLiteStarterAppTests-resources.sh */,
+				CF6C77976683171706FF943E101A62D0 /* Pods-CBLiteStarterAppTests.debug.xcconfig */,
+				8087093C4D1C675C4718FFE7DABE8B1E /* Pods-CBLiteStarterAppTests.release.xcconfig */,
+			);
+			name = "Pods-CBLiteStarterAppTests";
+			path = "Target Support Files/Pods-CBLiteStarterAppTests";
+			sourceTree = "<group>";
+		};
+		A16DD8F45099DD968FE8A0D110184BB1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7AA69FECC3154E72B4C618817F578FF4 /* libPods-CBLiteStarterApp.a */,
+				CB648A1FCCBF05F4DF3D8E1F894E8698 /* libPods-CBLiteStarterAppTests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A665471C60FB04C978E260D6B62E2616 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE511D8947F4FEFDF6EE968681AE2B77 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				104E1892B0778881DDAA1DD82E0BEAB0 /* couchbase-lite-ios */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D2C0EE0BF0E556F855656064CF1917CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBC010E8CAAC577793B0C8267A6FE5B9 /* CouchbaseLite.framework */,
+				12B99EE5A61B8B214DD56F6193EBDE26 /* CouchbaseLiteListener.framework */,
+				1E6DDD44587CC10D3FD0112E348BF0BF /* libCBLJSViewCompiler.a */,
+				7D5D7D0311688707001341D8D1746B20 /* libsqlcipher.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F836BF94FC914A47AF18B74875C3F55 /* Pods-CBLiteStarterAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A540FEE6A6E242864836C6D1D533C977 /* Build configuration list for PBXNativeTarget "Pods-CBLiteStarterAppTests" */;
+			buildPhases = (
+				2A2E4759308105DDC6DA8359F42F76A3 /* Sources */,
+				50FB7650294428CE2EF3887A9CE01203 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-CBLiteStarterAppTests";
+			productName = "Pods-CBLiteStarterAppTests";
+			productReference = CB648A1FCCBF05F4DF3D8E1F894E8698 /* libPods-CBLiteStarterAppTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		665F99444E9B0D49D383F46DCD8F18DE /* Pods-CBLiteStarterApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96D8ABAB73B14F077863F181DBB94359 /* Build configuration list for PBXNativeTarget "Pods-CBLiteStarterApp" */;
+			buildPhases = (
+				20885C26FD92FBE8F30B7388C15D0602 /* Sources */,
+				4A8FE096CE2F49AB392BC2CEF66DFDCF /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-CBLiteStarterApp";
+			productName = "Pods-CBLiteStarterApp";
+			productReference = 7AA69FECC3154E72B4C618817F578FF4 /* libPods-CBLiteStarterApp.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = A16DD8F45099DD968FE8A0D110184BB1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				665F99444E9B0D49D383F46DCD8F18DE /* Pods-CBLiteStarterApp */,
+				1F836BF94FC914A47AF18B74875C3F55 /* Pods-CBLiteStarterAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		20885C26FD92FBE8F30B7388C15D0602 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7CF5AA823E46A0F43D97C4FC946A27A /* Pods-CBLiteStarterApp-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A2E4759308105DDC6DA8359F42F76A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A548EF1E527C3371053F5DFF6C821E9 /* Pods-CBLiteStarterAppTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		163D87BE96A63549B0EACF1CC31A2E90 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		3D24184243861C0F974C6475C2E7D6E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94AF75ACC4E01897E1D0B5242A54FF67 /* Pods-CBLiteStarterApp.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		707B86CFB21B645E37109F39754D4051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9ADC9FD11A8157630FF6F569947662B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF6C77976683171706FF943E101A62D0 /* Pods-CBLiteStarterAppTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B49A3231BC300A82394AD8FBDC3F2C37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8087093C4D1C675C4718FFE7DABE8B1E /* Pods-CBLiteStarterAppTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C4071D91B7CB3AECAFEC4744F5A32900 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 923F85AC9990481975900EF4C1486F06 /* Pods-CBLiteStarterApp.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				163D87BE96A63549B0EACF1CC31A2E90 /* Debug */,
+				707B86CFB21B645E37109F39754D4051 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96D8ABAB73B14F077863F181DBB94359 /* Build configuration list for PBXNativeTarget "Pods-CBLiteStarterApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4071D91B7CB3AECAFEC4744F5A32900 /* Debug */,
+				3D24184243861C0F974C6475C2E7D6E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A540FEE6A6E242864836C6D1D533C977 /* Build configuration list for PBXNativeTarget "Pods-CBLiteStarterAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9ADC9FD11A8157630FF6F569947662B1 /* Debug */,
+				B49A3231BC300A82394AD8FBDC3F2C37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
