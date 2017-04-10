@@ -155,7 +155,7 @@ extension DocListTableViewController {
             }
             
             // 4: Add a new revision with specified user properties
-            let savedRev = try doc?.putProperties(userProps)
+            let _ = try doc?.putProperties(userProps)
             
         }
         catch  {

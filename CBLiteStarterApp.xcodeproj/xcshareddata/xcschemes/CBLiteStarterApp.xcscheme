@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5F06C28C1E967EAF00D0531D"
-               BuildableName = "CBLiteStarterApp.app"
+               BuildableName = "CBLite Demo.app"
                BlueprintName = "CBLiteStarterApp"
                ReferencedContainer = "container:CBLiteStarterApp.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5F06C28C1E967EAF00D0531D"
-            BuildableName = "CBLiteStarterApp.app"
+            BuildableName = "CBLite Demo.app"
             BlueprintName = "CBLiteStarterApp"
             ReferencedContainer = "container:CBLiteStarterApp.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5F06C28C1E967EAF00D0531D"
-            BuildableName = "CBLiteStarterApp.app"
+            BuildableName = "CBLite Demo.app"
             BlueprintName = "CBLiteStarterApp"
             ReferencedContainer = "container:CBLiteStarterApp.xcodeproj">
          </BuildableReference>
@@ -85,7 +85,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5F06C28C1E967EAF00D0531D"
-            BuildableName = "CBLiteStarterApp.app"
+            BuildableName = "CBLite Demo.app"
             BlueprintName = "CBLiteStarterApp"
             ReferencedContainer = "container:CBLiteStarterApp.xcodeproj">
          </BuildableReference>

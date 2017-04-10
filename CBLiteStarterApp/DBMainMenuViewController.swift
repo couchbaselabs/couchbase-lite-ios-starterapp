@@ -69,7 +69,7 @@ extension DBMainMenuViewController {
             options.create = true
             
             // 2: Create a DB if it does not exist else return handle to existing one
-            let db  = try cbManager.openDatabaseNamed(name.lowercased(), with: options)
+            let _  = try cbManager.openDatabaseNamed(name.lowercased(), with: options)
             self.showAlertWithTitle(NSLocalizedString("Success!", comment: ""), message: NSLocalizedString("Database \(name) was created succesfully at path \(CBLManager.defaultDirectory())", comment: ""))
             
         }

@@ -77,7 +77,7 @@ extension DBListTableViewController {
                     }
                 }
             default:
-                print("Unhandled segue \(segue.identifier)")
+                print("Unhandled segue \(String(describing: segue.identifier))")
             }
     }
 }
