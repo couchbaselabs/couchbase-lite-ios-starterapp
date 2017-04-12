@@ -9,13 +9,11 @@
 /* Begin PBXBuildFile section */
 		16B3C0D117496385266AEBFA /* libPods-CBLiteStarterApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F981E702F454E71CCB8D9D48 /* libPods-CBLiteStarterApp.a */; };
 		5F06C2911E967EAF00D0531D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06C2901E967EAF00D0531D /* AppDelegate.swift */; };
-		5F06C2931E967EAF00D0531D /* DBMainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06C2921E967EAF00D0531D /* DBMainMenuViewController.swift */; };
 		5F06C2961E967EAF00D0531D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F06C2941E967EAF00D0531D /* Main.storyboard */; };
 		5F06C2981E967EAF00D0531D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F06C2971E967EAF00D0531D /* Assets.xcassets */; };
 		5F06C29B1E967EAF00D0531D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F06C2991E967EAF00D0531D /* LaunchScreen.storyboard */; };
 		5F06C2A61E967EAF00D0531D /* CBLiteStarterAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06C2A51E967EAF00D0531D /* CBLiteStarterAppTests.swift */; };
 		5F06C2C61E96C3AC00D0531D /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06C2C51E96C3AC00D0531D /* ViewControllerExtension.swift */; };
-		5F06C2CB1E96D64C00D0531D /* DBListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06C2CA1E96D64C00D0531D /* DBListTableViewController.swift */; };
 		5F06C2CD1E96DD3500D0531D /* DocListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06C2CC1E96DD3500D0531D /* DocListTableViewController.swift */; };
 		5F06C2CF1E96E83B00D0531D /* StoryboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F06C2CE1E96E83B00D0531D /* StoryboardExtension.swift */; };
 		DDDA988CE0B10D78372275E5 /* libPods-CBLiteStarterAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F389668C48D2F3F2DB9AFEB2 /* libPods-CBLiteStarterAppTests.a */; };
@@ -37,7 +35,6 @@
 		3C1AA16270FD4013D6485DD5 /* Pods-CBLiteStarterApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBLiteStarterApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CBLiteStarterApp/Pods-CBLiteStarterApp.release.xcconfig"; sourceTree = "<group>"; };
 		5F06C28D1E967EAF00D0531D /* CBLite Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CBLite Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F06C2901E967EAF00D0531D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5F06C2921E967EAF00D0531D /* DBMainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMainMenuViewController.swift; sourceTree = "<group>"; };
 		5F06C2951E967EAF00D0531D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5F06C2971E967EAF00D0531D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F06C29A1E967EAF00D0531D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,7 +44,6 @@
 		5F06C2A71E967EAF00D0531D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F06C2B01E96A43E00D0531D /* CBLiteStarterApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CBLiteStarterApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		5F06C2C51E96C3AC00D0531D /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
-		5F06C2CA1E96D64C00D0531D /* DBListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBListTableViewController.swift; sourceTree = "<group>"; };
 		5F06C2CC1E96DD3500D0531D /* DocListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocListTableViewController.swift; sourceTree = "<group>"; };
 		5F06C2CE1E96E83B00D0531D /* StoryboardExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardExtension.swift; sourceTree = "<group>"; };
 		C11EED74DFB1027FE34337F2 /* Pods-CBLiteStarterAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CBLiteStarterAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CBLiteStarterAppTests/Pods-CBLiteStarterAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,8 +146,6 @@
 		5F06C2C81E96C3CD00D0531D /* view controllers */ = {
 			isa = PBXGroup;
 			children = (
-				5F06C2921E967EAF00D0531D /* DBMainMenuViewController.swift */,
-				5F06C2CA1E96D64C00D0531D /* DBListTableViewController.swift */,
 				5F06C2CC1E96DD3500D0531D /* DocListTableViewController.swift */,
 			);
 			name = "view controllers";
@@ -369,12 +363,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F06C2931E967EAF00D0531D /* DBMainMenuViewController.swift in Sources */,
 				5F06C2911E967EAF00D0531D /* AppDelegate.swift in Sources */,
 				5F06C2C61E96C3AC00D0531D /* ViewControllerExtension.swift in Sources */,
 				5F06C2CD1E96DD3500D0531D /* DocListTableViewController.swift in Sources */,
 				5F06C2CF1E96E83B00D0531D /* StoryboardExtension.swift in Sources */,
-				5F06C2CB1E96D64C00D0531D /* DBListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
