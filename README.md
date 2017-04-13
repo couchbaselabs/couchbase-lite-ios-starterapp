@@ -9,3 +9,5 @@ Please refer to the blog post at https://blog.couchbase.com/couchbase-lite-embed
 - iOS8
 
 
+
+![alt text](https://blog.couchbase.com/wp-content/uploads/2017/04/cblitedemo.gif)
