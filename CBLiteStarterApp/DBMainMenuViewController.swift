@@ -13,6 +13,10 @@ class DBMainMenuViewController: UITableViewController {
    
     fileprivate let cbManager:CBLManager = CBLManager.sharedInstance()
     fileprivate let kDefaultDBName = "My Awesome DB"
+    
+    deinit {
+        self.cbManager.close()
+    }
 }
 // MARK : UITableViewDelegate
 extension DBMainMenuViewController {
@@ -25,7 +29,8 @@ extension DBMainMenuViewController {
         default:
             return
         }
-}
+    }
+   
 }
 
 // MARK: UI helpers

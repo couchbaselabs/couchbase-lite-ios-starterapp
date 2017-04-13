@@ -39,6 +39,31 @@ extension DBListTableViewController {
     fileprivate func getAllDatabases() {
        self.dbNames = cbManager.allDatabaseNames
     }
+    
+    fileprivate func deleteDatabaseAtIndex(_ indexPath:IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath)   {
+            if  let dbToDelete = cell.textLabel?.text {
+                do {
+                    // 1.  Get handle to database if exists
+                    let db = try cbManager.existingDatabaseNamed(dbToDelete)
+                    
+                    // 2. Delete the database
+                    try db.delete()
+                    
+                    // 3. update local bookkeeping
+                    self.dbNames?.remove(at: indexPath.row)
+
+                    // 4. Update UI
+                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                }
+                catch {
+                    self.showAlertWithTitle(NSLocalizedString("Database Delete Error!", comment: ""), message: error.localizedDescription)
+                    
+                }
+                
+            }
+        }
+    }
 }
 
 //MARK:UITableViewDataSource
@@ -60,8 +85,24 @@ extension DBListTableViewController {
         
     }
     
-   
     
+}
+
+// MARK: UITableViewDelegate
+extension DBListTableViewController {
+    override public func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: NSLocalizedString("Delete", comment: ""), handler: { [unowned self] (action, indexPath) in
+            
+            // remove document at index
+            
+             self.deleteDatabaseAtIndex(indexPath)
+            
+            
+        })
+        return [deleteAction]
+        
+    }
+
 }
 
 //MARK:Navigation
