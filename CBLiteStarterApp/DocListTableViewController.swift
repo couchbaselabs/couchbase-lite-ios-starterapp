@@ -13,17 +13,20 @@ class DocListTableViewController:UITableViewController {
     enum DocumentUserProperties:String {
         case name = "name"
         case overview = "overview"
-        case type = "type"
-        case channels = "channels"
+        case tag = "tag"
     }
-    let dbName:String = "demo" // CHANGE THIS TO THE NAME OF DATABASE THAT YOU HAVE CREATED ON YOUR SYNC GATEWAY VIA ADMIN PORT
-    let remoteSyncUrl = "http://localhost:4984"
+    let kDbName:String = "demo" // CHANGE THIS TO THE NAME OF DATABASE THAT YOU HAVE CREATED ON YOUR SYNC GATEWAY VIA ADMIN PORT
+    
+    let kPublicDoc:String = "public"
+    
+    // This is the remote URL of the Sync Gateway (public Port)
+    let kRemoteSyncUrl = "http://localhost:4984"
  
     fileprivate let cbManager:CBLManager = CBLManager.sharedInstance()
 
     fileprivate var db:CBLDatabase?
     
-    fileprivate var channelId:String?
+    fileprivate var loggedInUser:String?
     
     fileprivate var docsEnumerator:CBLQueryEnumerator? {
         didSet {
@@ -97,7 +100,7 @@ extension DocListTableViewController {
                 print("Cannot open database without signing in ")
                 return
             }
-            self.channelId = "_\(name)"
+            self.loggedInUser = name
             self.openDatabaseForUser( name, password: password)
             
             self.getAllDocumentForDatabase()
@@ -125,15 +128,15 @@ extension DocListTableViewController {
             options.create = true
             
             // 2: Create a DB if it does not exist else return handle to existing one
-            self.db  = try cbManager.openDatabaseNamed(dbName.lowercased(), with: options)
-            self.showAlertWithTitle(NSLocalizedString("Success!", comment: ""), message: NSLocalizedString("Database \(dbName) was opened succesfully at path \(CBLManager.defaultDirectory())", comment: ""))
+            self.db  = try cbManager.openDatabaseNamed(kDbName.lowercased(), with: options)
+            self.showAlertWithTitle(NSLocalizedString("Success!", comment: ""), message: NSLocalizedString("Database \(kDbName) was opened succesfully at path \(CBLManager.defaultDirectory())", comment: ""))
             
             // 3. Start replication with remote Sync Gateway
             startDatabaseReplicationForUser(user, password: password)
         }
         catch  {
-            print("Failed to create database named \(dbName)")
-            self.showAlertWithTitle(NSLocalizedString("Error!", comment: ""), message: NSLocalizedString("Database \(dbName) open failed:\(error.localizedDescription)", comment: ""))
+            print("Failed to create database named \(kDbName)")
+            self.showAlertWithTitle(NSLocalizedString("Error!", comment: ""), message: NSLocalizedString("Database \(kDbName) open failed:\(error.localizedDescription)", comment: ""))
     
         }
     }
@@ -158,7 +161,7 @@ extension DocListTableViewController {
     fileprivate func startPullReplicationWithAuthenticator(_ auth:CBLAuthenticatorProtocol?) {
         
         // 1: Create a Pull replication to start pulling from remote source
-        let pullRepl = db?.createPullReplication(URL(string: dbName, relativeTo: URL.init(string: remoteSyncUrl))!)
+        let pullRepl = db?.createPullReplication(URL(string: kDbName, relativeTo: URL.init(string: kRemoteSyncUrl))!)
         
         // 2. Set Authenticator for pull replication
         pullRepl?.authenticator = auth
@@ -166,8 +169,8 @@ extension DocListTableViewController {
         // Continuously look for changes
         pullRepl?.continuous = true
         
-        // Set channels from which to pull
-        pullRepl?.channels = [self.channelId ?? ""]
+        // Optionally, Set channels from which to pull
+        // pullRepl?.channels = [...]
         
         // 4. Start the pull replicator
         pullRepl?.start()
@@ -177,7 +180,7 @@ extension DocListTableViewController {
     fileprivate func startPushReplicationWithAuthenticator(_ auth:CBLAuthenticatorProtocol?) {
         
         // 1: Create a push replication to start pushing to remote source
-        let pushRepl = db?.createPushReplication(URL(string: dbName, relativeTo: URL.init(string:remoteSyncUrl))!)
+        let pushRepl = db?.createPushReplication(URL(string: kDbName, relativeTo: URL.init(string:kRemoteSyncUrl))!)
         
         // 2. Set Authenticator for push replication
         pushRepl?.authenticator = auth
@@ -217,8 +220,9 @@ extension DocListTableViewController {
     fileprivate func getAllDocumentForDatabase() {
         do {
           
+          
             // 1. Get handle to DB with specified name
-            self.db = try cbManager.existingDatabaseNamed(dbName)
+            self.db = try cbManager.existingDatabaseNamed(kDbName)
             
             
             // 2. Create Query to fetch all documents. You can set a number of properties on the query object
@@ -231,8 +235,6 @@ extension DocListTableViewController {
             // 3: You can optionally set a number of properties on the query object.
             // Explore other properties on the query object
             liveQuery.limit = UInt(UINT32_MAX) // All documents
-            
-    
             
             //   query.postFilter =
             
@@ -252,11 +254,12 @@ extension DocListTableViewController {
                     self.showAlertWithTitle(NSLocalizedString("Data Fetch Error!", comment: ""), message: error.localizedDescription)
                 }
             })
+
             
         }
         catch  {
-            print("Failed to open database named \(String(describing: dbName))")
-            self.showAlertWithTitle(NSLocalizedString("Error!", comment: ""), message: NSLocalizedString("Database \(String(describing: dbName)) open failed:\(error.localizedDescription)", comment: ""))
+            print("Failed to open database named \(String(describing: kDbName))")
+            self.showAlertWithTitle(NSLocalizedString("Error!", comment: ""), message: NSLocalizedString("Database \(String(describing: kDbName)) open failed:\(error.localizedDescription)", comment: ""))
             
         }
 
@@ -264,7 +267,7 @@ extension DocListTableViewController {
     
     
     // Creates a Document in database
-    fileprivate func createDocWithName(_ name:String, overview:String) {
+    fileprivate func createDocWithName(_ name:String, overview:String, tag:String) {
         do {
             // 1: Create Document with unique Id else open existing one
             let doc = self.db?.createDocument()
@@ -272,7 +275,7 @@ extension DocListTableViewController {
             print("doc to add  \(String(describing: doc?.userProperties))")
             
             // 2: Construct user properties Object
-            let userProps = [DocumentUserProperties.name.rawValue:name,DocumentUserProperties.overview.rawValue:overview,DocumentUserProperties.channels.rawValue:[channelId ?? ""]] as [String : Any]
+            let userProps = [DocumentUserProperties.name.rawValue:name,DocumentUserProperties.overview.rawValue:overview,DocumentUserProperties.tag.rawValue:tag] as [String : Any]
             
            
             // 3: Add a new revision with specified user properties
@@ -288,15 +291,16 @@ extension DocListTableViewController {
     }
     
     // Updates the Document in database
-    fileprivate func updateDocWithName(_ name:String, overview:String, atIndex index:Int) {
+    fileprivate func updateDocWithName(_ name:String, overview:String, tag:String, atIndex index:Int) {
         do {
             // 1: Get the document associated with the row
             let doc = self.docAtIndex(index)
             
-            print("doc to add  \(String(describing: doc?.userProperties))")
+            print("doc to update  \(String(describing: doc?.userProperties))")
             
+      
             // 2: Construct user properties Object with updated values
-            var userProps = [DocumentUserProperties.name.rawValue:name,DocumentUserProperties.overview.rawValue:overview,DocumentUserProperties.channels.rawValue:["_demouser"]] as [String : Any]
+            var userProps = [DocumentUserProperties.name.rawValue:name,DocumentUserProperties.overview.rawValue:overview,DocumentUserProperties.tag.rawValue:tag] as [String : Any]
             
             // 3: If a previous revision of document exists, make sure to specify that. SInce its an update, it should exist!
             if let revId = doc?.currentRevisionID  {
@@ -420,31 +424,40 @@ extension DocListTableViewController {
             let row = indexPath.row
             
             guard let doc = self.docAtIndex(row) else {
-                print ("No document at index")
+                print ("No document at index!")
                 return
             }
             
-            let userProp = doc.userProperties
+            guard  let userProp = doc.userProperties else {
+                print ("Document to edit has no current user properties!")
+                return
+            }
             
             let alertController = UIAlertController(title: nil,
                                                     message: NSLocalizedString("Update Document", comment: ""),
                                                     preferredStyle: .alert)
             var docTitleTextField: UITextField!
             var docOverviewTextField: UITextField!
+            
             alertController.addTextField(configurationHandler: { (textField) in
-                textField.text = userProp?[DocumentUserProperties.name.rawValue] as? String
+                textField.text = userProp[DocumentUserProperties.name.rawValue] as? String
                 docTitleTextField = textField
             })
             
             alertController.addTextField(configurationHandler: { (textField) in
-                textField.text = userProp?[DocumentUserProperties.overview.rawValue] as? String
+                textField.text = userProp[DocumentUserProperties.overview.rawValue] as? String
                 docOverviewTextField = textField
             })
             
             alertController.addAction(UIAlertAction(title: NSLocalizedString("Update", comment: ""), style: .default) { _ in
                 // update document at index
                 let row = indexPath.row
-                self.updateDocWithName(docTitleTextField.text ?? "", overview: docOverviewTextField.text ?? "", atIndex: row)
+                // Document tag is not updated
+                guard let currTag = userProp[DocumentUserProperties.tag.rawValue] as? String else {
+                    print("Tag does not exist for document to be updated!")
+                    return
+                }
+                self.updateDocWithName(docTitleTextField.text ?? "", overview: docOverviewTextField.text ?? "", tag:currTag ,atIndex: row )
                 
               })
             
@@ -465,7 +478,7 @@ extension DocListTableViewController {
     func handleAddDocumentRequest() {
         var docNameTextField:UITextField!
         var docOverviewTextField:UITextField!
-        
+        var tagTextField:UITextField!
         let alertController = UIAlertController(title: nil,
                                                 message: NSLocalizedString("Add Document", comment: ""),
                                                 preferredStyle: .alert)
@@ -477,12 +490,16 @@ extension DocListTableViewController {
             textField.placeholder = NSLocalizedString("A one-line description", comment: "")
             docOverviewTextField = textField
         })
+        alertController.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = NSLocalizedString("Specify \"public\" for documents that can be shared. Blank otherwise", comment: "")
+            tagTextField = textField
+        })
         
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Create", comment: ""), style: .default) { _ in
-            let docName = docNameTextField.text ?? "\(String(describing: self.dbName))_\(String(describing: self.docsEnumerator?.count))"
+            let docName = docNameTextField.text ?? "\(String(describing: self.kDbName))_\(String(describing: self.docsEnumerator?.count))"
             let docOverview = docOverviewTextField.text ?? ""
-            self.createDocWithName(docName, overview:docOverview)
-        
+            let tag = (tagTextField.text == self.kPublicDoc) ? self.kPublicDoc: "_\(String(describing: self.loggedInUser))"
+                self.createDocWithName(docName, overview:docOverview,tag:tag)
   
         })
         
