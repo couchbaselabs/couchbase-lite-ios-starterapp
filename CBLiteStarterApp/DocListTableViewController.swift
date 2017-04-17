@@ -13,8 +13,10 @@ class DocListTableViewController:UITableViewController {
     enum DocumentUserProperties:String {
         case name = "name"
         case overview = "overview"
+        case owner = "owner"
         case tag = "tag"
     }
+    
     let kDbName:String = "demo" // CHANGE THIS TO THE NAME OF DATABASE THAT YOU HAVE CREATED ON YOUR SYNC GATEWAY VIA ADMIN PORT
     
     let kPublicDoc:String = "public"
@@ -39,6 +41,7 @@ class DocListTableViewController:UITableViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         self.updateUIWithAddButton()
+        self.updateUIWithLogoutButton()
         self.title = NSLocalizedString("Documents", comment: "")
     }
     
@@ -46,38 +49,54 @@ class DocListTableViewController:UITableViewController {
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.updateUIWithAddButton()
-        
         self.loginUser()
         
     }
     
     deinit {
+        self.deinitialize()
         
+    }
+    
+    func updateUIWithAddButton() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAddDocumentRequest))
+    }
+    
+    func updateUIWithLogoutButton() {
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Logout", comment: ""), style: .plain, target: self, action: #selector(handleLogout))
+    }
+    
+    
+    func updateUIWithLoginButton() {
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Login", comment: ""), style: .plain, target: self, action: #selector(loginUser))
+    }
+    
+    fileprivate func deinitialize() {
         // Stop observing changes to the database that affect the query
         self.removeLiveQueryObserverAndStopObserving()
         
         // Stop observing remote db changes
-        self.removeRemoteDatabaseObserverForPullChangesAndStopObserving()
+        self.removeRemoteDatabaseObserverAndStopObserving()
         
-        // Close Database handle
+        
+        // Close Database handle . stops all replications
         do {
             try self.db?.close()
+            docsEnumerator = nil
+            self.loginUser()
         }
         catch {
-            
         }
-        
-    }
-    
-    private func updateUIWithAddButton() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAddDocumentRequest))
+
     }
 }
 
+
 // MARK: Login
 extension DocListTableViewController {
-    fileprivate func loginUser() {
+     func loginUser() {
         let alertController = UIAlertController(title: nil,
                                                 message: NSLocalizedString("Login", comment: ""),
                                                 preferredStyle: .alert)
@@ -100,10 +119,45 @@ extension DocListTableViewController {
                 print("Cannot open database without signing in ")
                 return
             }
+            self.updateUIWithLogoutButton()
             self.loggedInUser = name
-            self.openDatabaseForUser( name, password: password)
+            if self.openDatabaseForUser( name, password: password) == true {
+                self.getAllDocumentForUserDatabase()
+            }
             
-            self.getAllDocumentForDatabase()
+        })
+        
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default) { _ in
+            self.updateUIWithLoginButton()
+        })
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    func handleAddDocumentRequest() {
+        var docNameTextField:UITextField!
+        var docOverviewTextField:UITextField!
+        var tagTextField:UITextField!
+        let alertController = UIAlertController(title: nil,
+                                                message: NSLocalizedString("Add Document", comment: ""),
+                                                preferredStyle: .alert)
+        alertController.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = NSLocalizedString("Enter Document Name", comment: "")
+            docNameTextField = textField
+        })
+        alertController.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = NSLocalizedString("A one-line description", comment: "")
+            docOverviewTextField = textField
+        })
+        alertController.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = NSLocalizedString("Specify \"public\" for documents that can be shared. Blank otherwise", comment: "")
+            tagTextField = textField
+        })
+        
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Create", comment: ""), style: .default) { _ in
+            let docName = docNameTextField.text ?? "\(String(describing: self.kDbName))_\(String(describing: self.docsEnumerator?.count))"
+            let docOverview = docOverviewTextField.text ?? ""
+            let tag = (tagTextField.text == self.kPublicDoc) ? self.kPublicDoc: "_\(String(describing: self.loggedInUser))"
+            self.createDocWithName(docName, overview:docOverview,tag:tag)
             
         })
         
@@ -113,13 +167,17 @@ extension DocListTableViewController {
         self.present(alertController, animated: true, completion: nil)
         
     }
+    
+    func handleLogout() {
+        self.deinitialize()
+    }
 }
 
 // MARK: CBL Related
 extension DocListTableViewController {
     
     // Creates a DB in local store if it does not exist
-    fileprivate func openDatabaseForUser(_ user:String, password:String) {
+    fileprivate func openDatabaseForUser(_ user:String, password:String)-> Bool {
         
         do {
             // 1: Set Database Options
@@ -127,16 +185,18 @@ extension DocListTableViewController {
             options.storageType  = kCBLSQLiteStorage
             options.create = true
             
-            // 2: Create a DB if it does not exist else return handle to existing one
-            self.db  = try cbManager.openDatabaseNamed(kDbName.lowercased(), with: options)
-            self.showAlertWithTitle(NSLocalizedString("Success!", comment: ""), message: NSLocalizedString("Database \(kDbName) was opened succesfully at path \(CBLManager.defaultDirectory())", comment: ""))
+            // 2: Create a DB for logged in user if it does not exist else return handle to existing one
+            self.db  = try cbManager.openDatabaseNamed(user.lowercased(), with: options)
+            self.showAlertWithTitle(NSLocalizedString("Success!", comment: ""), message: NSLocalizedString("Database \(user) was opened succesfully at path \(CBLManager.defaultDirectory())", comment: ""))
             
             // 3. Start replication with remote Sync Gateway
             startDatabaseReplicationForUser(user, password: password)
+            return true
         }
         catch  {
-            print("Failed to create database named \(kDbName)")
-            self.showAlertWithTitle(NSLocalizedString("Error!", comment: ""), message: NSLocalizedString("Database \(kDbName) open failed:\(error.localizedDescription)", comment: ""))
+            print("Failed to create database named \(user)")
+            self.showAlertWithTitle(NSLocalizedString("Error!", comment: ""), message: NSLocalizedString("Database \(user) open failed:\(error.localizedDescription)", comment: ""))
+            return false
     
         }
     }
@@ -198,17 +258,20 @@ extension DocListTableViewController {
     fileprivate func addRemoteDatabaseChangesObserverAndStartObserving() {
         
         
-        // 1. iOS Specific. Add observer to the pull replicator
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.cblReplicationChange, object: db, queue: nil) {
+        // 1. iOS Specific. Add observer to the NOtification Center to observe replicator changes
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.cblReplicationChange, object: nil, queue: nil) {
             [unowned self] (notification) in
           
+            // Handle changes to the replicator status - Such as displaying progress
+            // indicator when status is .running
             print ("\(String(describing: self.db)) was updated")
+            
         }
         
     }
     
-    fileprivate func removeRemoteDatabaseObserverForPullChangesAndStopObserving() {
-        // 1. iOS Specific. Remove observer from the live Query object
+    fileprivate func removeRemoteDatabaseObserverAndStopObserving() {
+        // 1. iOS Specific. Remove observer from Replication state changes
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.cblReplicationChange, object: nil)
         
     }
@@ -217,36 +280,32 @@ extension DocListTableViewController {
    
 
     // Fetch all Documents in Database
-    fileprivate func getAllDocumentForDatabase() {
+    fileprivate func getAllDocumentForUserDatabase() {
         do {
-          
-          
-            // 1. Get handle to DB with specified name
-            self.db = try cbManager.existingDatabaseNamed(kDbName)
             
             
-            // 2. Create Query to fetch all documents. You can set a number of properties on the query object
+            // 1. Create Query to fetch all documents. You can set a number of properties on the query object
             liveQuery = self.db?.createAllDocumentsQuery().asLive()
             
             guard let liveQuery = liveQuery else {
                 return
             }
             
-            // 3: You can optionally set a number of properties on the query object.
+            // 2: You can optionally set a number of properties on the query object.
             // Explore other properties on the query object
             liveQuery.limit = UInt(UINT32_MAX) // All documents
             
             //   query.postFilter =
             
-            //4. Start observing for changes to the database
+            //3. Start observing for changes to the database
             self.addLiveQueryObserverAndStartObserving()
             
             
-            // 5: Run the query to fetch documents asynchronously
+            // 4: Run the query to fetch documents asynchronously
             liveQuery.runAsync({ (enumerator, error) in
                 switch error {
                 case nil:
-                    // 6: The "enumerator" is of type CBLQueryEnumerator and is an enumerator for the results
+                    // 5: The "enumerator" is of type CBLQueryEnumerator and is an enumerator for the results
                     self.docsEnumerator = enumerator
                     
                     
@@ -272,10 +331,12 @@ extension DocListTableViewController {
             // 1: Create Document with unique Id else open existing one
             let doc = self.db?.createDocument()
             
-            print("doc to add  \(String(describing: doc?.userProperties))")
             
             // 2: Construct user properties Object
-            let userProps = [DocumentUserProperties.name.rawValue:name,DocumentUserProperties.overview.rawValue:overview,DocumentUserProperties.tag.rawValue:tag] as [String : Any]
+            let userProps = [DocumentUserProperties.name.rawValue:name,
+                             DocumentUserProperties.overview.rawValue:overview,
+                             DocumentUserProperties.tag.rawValue:tag,
+                             DocumentUserProperties.owner.rawValue:loggedInUser ?? ""] as [String : Any]
             
            
             // 3: Add a new revision with specified user properties
@@ -300,7 +361,10 @@ extension DocListTableViewController {
             
       
             // 2: Construct user properties Object with updated values
-            var userProps = [DocumentUserProperties.name.rawValue:name,DocumentUserProperties.overview.rawValue:overview,DocumentUserProperties.tag.rawValue:tag] as [String : Any]
+            var userProps = [DocumentUserProperties.name.rawValue:name,
+                             DocumentUserProperties.overview.rawValue:overview,
+                             DocumentUserProperties.tag.rawValue:tag,
+                             DocumentUserProperties.owner.rawValue:loggedInUser ?? ""] as [String : Any]
             
             // 3: If a previous revision of document exists, make sure to specify that. SInce its an update, it should exist!
             if let revId = doc?.currentRevisionID  {
@@ -327,7 +391,7 @@ extension DocListTableViewController {
             let doc = self.docAtIndex(index)
             
             
-            print("doc ro remove  \(String(describing: doc?.userProperties))")
+            print("doc to remove  \(String(describing: doc?.userProperties))")
             
             // 2: Delete the document
             try doc?.delete()
@@ -473,45 +537,6 @@ extension DocListTableViewController {
     }
 }
 
-//MARK: UI Stuff
-extension DocListTableViewController {
-    func handleAddDocumentRequest() {
-        var docNameTextField:UITextField!
-        var docOverviewTextField:UITextField!
-        var tagTextField:UITextField!
-        let alertController = UIAlertController(title: nil,
-                                                message: NSLocalizedString("Add Document", comment: ""),
-                                                preferredStyle: .alert)
-        alertController.addTextField(configurationHandler: { (textField) in
-            textField.placeholder = NSLocalizedString("Enter Document Name", comment: "")
-            docNameTextField = textField
-        })
-        alertController.addTextField(configurationHandler: { (textField) in
-            textField.placeholder = NSLocalizedString("A one-line description", comment: "")
-            docOverviewTextField = textField
-        })
-        alertController.addTextField(configurationHandler: { (textField) in
-            textField.placeholder = NSLocalizedString("Specify \"public\" for documents that can be shared. Blank otherwise", comment: "")
-            tagTextField = textField
-        })
-        
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("Create", comment: ""), style: .default) { _ in
-            let docName = docNameTextField.text ?? "\(String(describing: self.kDbName))_\(String(describing: self.docsEnumerator?.count))"
-            let docOverview = docOverviewTextField.text ?? ""
-            let tag = (tagTextField.text == self.kPublicDoc) ? self.kPublicDoc: "_\(String(describing: self.loggedInUser))"
-                self.createDocWithName(docName, overview:docOverview,tag:tag)
-  
-        })
-        
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default) { _ in
-            
-        })
-        self.present(alertController, animated: true, completion: nil)
-
-    
-    
-    }
-}
 
 
 // MARK: KVO
