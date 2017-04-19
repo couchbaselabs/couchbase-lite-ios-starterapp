@@ -13,11 +13,13 @@ This is the default mode (master branch). In this mode, Couchbase Lite is used e
 For details, please refer to the blog post at https://blog.couchbase.com/couchbase-lite-embedded-in-ios-app-part1/  for details on running app in Standalone mode . 
 ![alt text](https://blog.couchbase.com/wp-content/uploads/2017/04/cblitedemo.gif)
 
-### Synchornization Mode:
-To test out replication, please switch to "syncsupport" branch. In this mode, Couchbase Lite syncs (pulls and pushes changes continuously) with a remote Sync Gateway. Details coming soon. 
+### Synchronization Mode:
+To test out replication, please switch to `syncsupport` branch. In this mode, Couchbase Lite syncs (pulls and pushes changes continuously) with a remote Sync Gateway. Details coming soon. 
+
+```
 git clone git@github.com:couchbaselabs/couchbase-lite-ios-standalone-sampleapp.git
 git checkout syncsupport
-
+```
 
 
 
