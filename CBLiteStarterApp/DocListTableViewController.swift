@@ -20,6 +20,7 @@ class DocListTableViewController:UITableViewController {
     let kDbName:String = "demo" // CHANGE THIS TO THE NAME OF DATABASE THAT YOU HAVE CREATED ON YOUR SYNC GATEWAY VIA ADMIN PORT
     
     let kPublicDoc:String = "public"
+    let kPrivateDoc:String = "private"
     
     // This is the remote URL of the Sync Gateway (public Port)
     let kRemoteSyncUrl = "http://localhost:4984"
@@ -156,7 +157,7 @@ extension DocListTableViewController {
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Create", comment: ""), style: .default) { _ in
             let docName = docNameTextField.text ?? "\(String(describing: self.kDbName))_\(String(describing: self.docsEnumerator?.count))"
             let docOverview = docOverviewTextField.text ?? ""
-            let tag = (tagTextField.text == self.kPublicDoc) ? self.kPublicDoc: "_\(String(describing: self.loggedInUser))"
+            let tag = (tagTextField.text == self.kPublicDoc) ? self.kPublicDoc: self.kPrivateDoc
             self.createDocWithName(docName, overview:docOverview,tag:tag)
             
         })
