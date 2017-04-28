@@ -1,4 +1,7 @@
-A very simple example of an iOS App that demonstrates the basics of integrating with Couchbase Lite (v1.4). The Couchbase Lite framework is used in standalone mode without a remote Sync Server.
+A starter iOS App that demonstrates the basic Couchbase Lite APIs.
+The Couchbase Lite framework can be used in two modes
+- Standalone mode as a local embedded database
+- With a Remote Sync Gateway that allows you to replicate data across devices
 
 ### Prerequisites
 - Xcode 8.3+
