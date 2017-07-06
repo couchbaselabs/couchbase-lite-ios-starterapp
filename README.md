@@ -14,6 +14,13 @@ The Couchbase Lite framework can be used in two modes
 ### Standalone mode: 
 This is the default mode (master branch). In this mode, Couchbase Lite is used exclusively as a local database and database transactions are not synched to remote database . 
 For details, please refer to the blog post at https://blog.couchbase.com/couchbase-lite-embedded-in-ios-app-part1/ that discusses the code. 
+
+```
+git clone git@github.com:couchbaselabs/couchbase-lite-ios-standalone-sampleapp.git
+cd couchbase-lite-ios-starterapp/
+open CBLiteStarterApp.xcworkspace/
+```
+
 ![alt text](https://blog.couchbase.com/wp-content/uploads/2017/04/cblitedemo.gif)
 
 ### Synchronization Mode:
