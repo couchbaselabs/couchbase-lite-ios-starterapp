@@ -4,8 +4,8 @@ The Couchbase Lite framework can be used in two modes
 - With a Remote Sync Gateway that allows you to replicate data across devices
 
 ### Prerequisites
-- Xcode 8.3+
-- Swift 3
+- Xcode 11+
+- Swift 5
 
 ### Deployment Target
 - iOS8
