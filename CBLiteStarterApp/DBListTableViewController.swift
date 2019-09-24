@@ -74,7 +74,7 @@ extension DBListTableViewController {
     
     
     override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DBCell") else { return UITableViewCell.init()}
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DBCell") ?? UITableViewCell.init()
         if let db = dbNames?[indexPath.row] {
             cell.textLabel?.text = db
         
@@ -103,6 +103,9 @@ extension DBListTableViewController {
         
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ListDocumentSegue", sender: nil)
+    }
 }
 
 //MARK:Navigation

@@ -235,7 +235,7 @@ extension DocListTableViewController {
     
     
     override public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DocumentCell") else { return UITableViewCell.init()}
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DocumentCell") ?? UITableViewCell.init()
         if let queryRow = docsEnumerator?.row(at: UInt(indexPath.row)) {
             print ("row is \(String(describing: queryRow.document))")
             if let userProps = queryRow.document?.userProperties ,let title = userProps[DocumentUserProperties.name.rawValue] as? String , let overview = userProps[DocumentUserProperties.overview.rawValue] as? String{
@@ -312,7 +312,7 @@ extension DocListTableViewController {
 
 //MARK: UI Stuff
 extension DocListTableViewController {
-    func handleAddDocumentRequest() {
+    @objc func handleAddDocumentRequest() {
         var docNameTextField:UITextField!
         var docOverviewTextField:UITextField!
         

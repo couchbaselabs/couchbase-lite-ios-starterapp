@@ -11,8 +11,8 @@ import Foundation
 extension UIViewController {
     func showAlertWithTitle(_ title:String?, message:String) {
         
-        let alertController = UIAlertController(title: title ?? "", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+        let alertController = UIAlertController(title: title ?? "", message: message, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { (result : UIAlertAction) -> Void in
             self.dismiss(animated: true, completion: {
                 
             })
