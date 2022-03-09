@@ -1,3 +1,5 @@
+⚠️ This repo is obsolete.  It was developed using a version of Couchbase Lite that reached end of life years ago.
+
 A starter iOS App that demonstrates the basic Couchbase Lite APIs.
 The Couchbase Lite framework can be used in two modes
 - Standalone mode as a local embedded database
